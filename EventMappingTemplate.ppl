@@ -1,0 +1,11 @@
+import PT_RCF:ServiceInterface;
+
+class ChangeClassNameToEventName implements PT_RCF:ServiceInterface
+   method execute();
+end-class;
+
+method execute
+   /+ Extends/implements PT_RCF:ServiceInterface.execute +/
+   
+   REM ** Code goes here;
+end-method;
