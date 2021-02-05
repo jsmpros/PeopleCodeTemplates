@@ -1,0 +1,20 @@
+import PS_PT:Integration:IRequestHandler;
+
+class GetEmployeesHandler implements PS_PT:Integration:IRequestHandler
+   method OnRequest(&request As Message) Returns Message;
+   
+end-class;
+
+
+method OnRequest
+   /+ &request as Message +/
+   /+ Returns Message +/
+   /+ Extends/implements PS_PT:Integration:IRequestHandler.OnRequest +/
+   REM ** TODO: Update operation name;
+   Local Message &response = CreateMessage(Operation.<OPERATION_NAME>, %IntBroker_Response);
+   
+   REM ** TODO: Implementation Code Goes here;
+   
+   Return &response;
+end-method;
+
