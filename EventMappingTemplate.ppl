@@ -1,6 +1,6 @@
 import PT_RCF:ServiceInterface;
 
-class ChangeClassNameToEventName implements PT_RCF:ServiceInterface
+class ChangeClassNameToEventName extends PT_RCF:ServiceInterface
    method execute();
 end-class;
 
