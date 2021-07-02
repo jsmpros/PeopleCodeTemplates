@@ -1,0 +1,23 @@
+import PTGP_APPCLASS_TILE:Tiles:Tile;
+
+class <NameOfClass> extends PTGP_APPCLASS_TILE:Tiles:Tile
+   method <NameOfClass>();
+   method getTileLiveData();
+end-class;
+
+method <NameOfClass>
+   %Super = create PTGP_APPCLASS_TILE:Tiles:Tile();
+end-method;
+
+method getTileLiveData
+   /+ Extends/implements PTGP_APPCLASS_TILE:Tiles:Tile.getTileLiveData +/
+   %This.setTileImageRef(Image.<NAME_OF_IMAGE>);
+   
+   Local number &count;
+   
+   SQLExec("SQL TO GET TRANSACTION COUNT", &count);
+   
+   %This.setTileHasCount("Y"); /* Enables the badge area. */
+   %This.TileTransCount = &count;
+   
+end-method;
