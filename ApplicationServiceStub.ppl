@@ -1,0 +1,26 @@
+import PTCBAPPLSVCDEFN:ApplicationServiceBase;
+import PTCBAPPLSVCDEFN:MessageAPI;
+
+class ServiceName extends PTCBAPPLSVCDEFN:ApplicationServiceBase
+   method invokeService();
+   
+end-class;
+
+method invokeService
+   Local PTCBAPPLSVCDEFN:MessageAPI &serviceAPI = %This.ServiceAPI;
+
+   REM ** TODO: Solution goes here;
+
+   REM ** Read a query string parameter;
+   REM Local string &request = &serviceAPI.getTemplateParameter("parameter name");
+
+   REM ** Set value of output parameter
+   REM &serviceAPI.setOutputParameter("response", &response);
+
+
+   REM ** On success:
+   &serviceAPI.ResultState = "Success";
+
+   REM ** On failure:
+   REM &serviceAPI.ResultState = "<Failed State Name>";
+end-method;
