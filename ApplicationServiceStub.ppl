@@ -14,7 +14,7 @@ method invokeService
    REM ** Read a query string parameter;
    REM Local string &request = &serviceAPI.getTemplateParameter("parameter name");
 
-   REM ** Set value of output parameter
+   REM ** Set value of output parameter;
    REM &serviceAPI.setOutputParameter("response", &response);
 
 
