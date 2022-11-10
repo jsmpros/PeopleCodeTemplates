@@ -1,0 +1,14 @@
+import TTS_UNITTEST:TestBase;
+
+class TestCaseTemplate extends TTS_UNITTEST:TestBase;
+   method TestPerson();
+   method Run();
+end-class;
+
+method TestPerson
+   %Super = create TTS_UNITTEST:TestBase("TestCaseTemplate");
+end-method;
+
+method Run
+   /+ Extends/implements TTS_UNITTEST:TestBase.Run +/
+end-method;
