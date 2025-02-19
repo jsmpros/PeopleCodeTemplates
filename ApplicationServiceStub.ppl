@@ -18,9 +18,9 @@ method invokeService
    REM &serviceAPI.setOutputParameter("response", &response);
 
 
-   REM ** On success:
-   &serviceAPI.ResultState = "Success";
+   REM ** On success;
+   REM &serviceAPI.ResultState = "Success";
 
-   REM ** On failure:
+   REM ** On failure;
    REM &serviceAPI.ResultState = "<Failed State Name>";
 end-method;
