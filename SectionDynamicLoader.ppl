@@ -1,0 +1,43 @@
+REM ** Dynamic Loader template for Fluid Landing Pages;
+REM ** Downloaded from https://github.com/jsmpros/;
+REM ** This code is provided as a sample for training and discussion purposes. No warranty, express or implied;
+import PTNUI:Dynamic:DynamicLoader;
+import PTNUI:Model:LandingPageTab;
+import PTNUI:Model:LandingPageSection;
+import PTNUI:Model:Tile;
+
+class MyDynamicLoader extends PTNUI:Dynamic:DynamicLoader;
+   method MyDynamicLoader(&oTab As PTNUI:Model:LandingPageTab, &oSection As PTNUI:Model:LandingPageSection);
+   method LoadSection();
+end-class;
+
+method MyDynamicLoader
+   /+ &oTab as PTNUI:Model:LandingPageTab, +/
+   /+ &oSection as PTNUI:Model:LandingPageSection +/
+   %Super = create PTNUI:Dynamic:DynamicLoader(&oTab, &oSection);
+end-method;
+
+method LoadSection
+   /+ Extends/implements PTNUI:Dynamic:DynamicLoader.LoadSection +/
+   Local PTNUI:Model:Tile &oTile;
+   REM ** Additional vars declared here;
+   Local string &tileLabel;
+   Local string &targetUrl;
+   
+   REM ** do something to figure out how many tiles;
+   While ...
+      
+      &oTile = %This.CreateTileUsingTab("", &tileLabel);
+      &oTile.RowNum = %This.GetNextRowNumber();
+      REM ** If all rows have the same image, then the image is noise. Prefer a dynamic image;
+      &oTile.GltImageName = Image.<IMAGE_NAME_HERE>;
+      &oTile.IsNotTile = True;
+      
+      REM ** For Classic;
+      %This.SetupClassicTarget(&oTile, &targetUrl);
+      REM ** or Fluid;
+      %This.SetupFluidTarget(&oTile, &targetUrl);
+
+      %This.AddTileToSection(&oTile);
+   End-While;
+end-method;
