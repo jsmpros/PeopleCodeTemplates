@@ -31,7 +31,9 @@ method LoadSection
       &oTile.RowNum = %This.GetNextRowNumber();
       REM ** If all rows have the same image, then the image is noise. Prefer a dynamic image;
       &oTile.GltImageName = Image.<IMAGE_NAME_HERE>;
-      &oTile.IsNotTile = True;
+      REM ** Use the following 2 lines for text-only, non-clickable tiles;
+      REM &oTile.IsNotTile = True;
+      REM &oTile.IsHotspotEnabled = False;
       
       REM ** For Classic;
       %This.SetupClassicTarget(&oTile, &targetUrl);
