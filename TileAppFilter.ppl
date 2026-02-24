@@ -1,6 +1,6 @@
 import PTGP_APPCLASS_TILE:API:TileAppFilter;
 
-class ChangeClassNameToEventName extends PTGP_APPCLASS_TILE:API:TileAppFilter
+class ChangeClassNameToFilterName extends PTGP_APPCLASS_TILE:API:TileAppFilter
    method IsTileVisible();
 end-class;
 
@@ -9,10 +9,10 @@ method IsTileVisible
    /+ Returns Boolean +/
    /+ Extends/implements PTGP_APPCLASS_TILE:API:TileAppFilter.IsTileVisible +/
    
-   Local string &isVisible = false;
+   Local boolean &isVisible = false;
 
    /* Application-specific logic to hide or show a tile. */
-   If ("conditon" = "comparison") Then
+   If ("condition" = "comparison") Then
       &isVisible = true;
    End-If;
    
