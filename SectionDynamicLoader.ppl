@@ -24,7 +24,7 @@ method LoadSection
    Local string &tileLabel;
    Local string &targetUrl;
    
-   REM ** do something to figure out how many tiles;
+   REM ** iterate over data set;
    While ...
       
       &oTile = %This.CreateTileUsingTab("", &tileLabel);
@@ -34,7 +34,8 @@ method LoadSection
       REM ** Use the following 2 lines for text-only, non-clickable tiles;
       REM &oTile.IsNotTile = True;
       REM &oTile.IsHotspotEnabled = False;
-      
+
+      REM ** Choose one of the following as they are mutually exclusive (classic or fluid, not both);
       REM ** For Classic;
       %This.SetupClassicTarget(&oTile, &targetUrl);
       REM ** or Fluid;
