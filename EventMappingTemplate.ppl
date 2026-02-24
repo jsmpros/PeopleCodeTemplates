@@ -8,4 +8,5 @@ method execute
    /+ Extends/implements PT_RCF:ServiceInterface.execute +/
    
    REM ** Code goes here;
+   REM ** Remember, you have full access to the contextual component buffer, including functions, variables, and RECORD.FIELD references;
 end-method;
