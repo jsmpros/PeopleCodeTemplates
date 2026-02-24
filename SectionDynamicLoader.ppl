@@ -6,12 +6,12 @@ import PTNUI:Model:LandingPageTab;
 import PTNUI:Model:LandingPageSection;
 import PTNUI:Model:Tile;
 
-class MyDynamicLoader extends PTNUI:Dynamic:DynamicLoader;
-   method MyDynamicLoader(&oTab As PTNUI:Model:LandingPageTab, &oSection As PTNUI:Model:LandingPageSection);
+class <NameOfLoaderClass> extends PTNUI:Dynamic:DynamicLoader;
+   method <NameOfLoaderClass>(&oTab As PTNUI:Model:LandingPageTab, &oSection As PTNUI:Model:LandingPageSection);
    method LoadSection();
 end-class;
 
-method MyDynamicLoader
+method <NameOfLoaderClass>
    /+ &oTab as PTNUI:Model:LandingPageTab, +/
    /+ &oSection as PTNUI:Model:LandingPageSection +/
    %Super = create PTNUI:Dynamic:DynamicLoader(&oTab, &oSection);
