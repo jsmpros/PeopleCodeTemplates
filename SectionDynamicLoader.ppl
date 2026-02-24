@@ -14,6 +14,7 @@ end-class;
 method <NameOfLoaderClass>
    /+ &oTab as PTNUI:Model:LandingPageTab, +/
    /+ &oSection as PTNUI:Model:LandingPageSection +/
+   REM ** Use the &oTab and &oSection variables to add style classes, style sheets, or read attributes associated with the parent tab and dynamic section;
    %Super = create PTNUI:Dynamic:DynamicLoader(&oTab, &oSection);
 end-method;
 
@@ -21,7 +22,10 @@ method LoadSection
    /+ Extends/implements PTNUI:Dynamic:DynamicLoader.LoadSection +/
    Local PTNUI:Model:Tile &oTile;
    REM ** Additional vars declared here;
+   REM ** set the following two variables from data within your dataset;
+   REM ** &tileLabel: rendered on the face of the tile as the tile's title;
    Local string &tileLabel;
+   REM ** &targetUrl: Where to go when a user clicks a tile;
    Local string &targetUrl;
    
    REM ** iterate over data set;
