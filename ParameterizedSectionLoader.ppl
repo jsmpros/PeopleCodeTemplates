@@ -1,0 +1,44 @@
+import PTNUI:Dynamic:DynamicLoader;
+import PTNUI:Model:LandingPageTab;
+import PTNUI:Model:LandingPageSection;
+import PTNUI:Model:Tile;
+
+class ParameterizedLoader extends PTNUI:Dynamic:DynamicLoader;
+   method ParameterizedLoader(&oTab As PTNUI:Model:LandingPageTab, &oSection As PTNUI:Model:LandingPageSection);
+   
+protected
+   REM ** Subclasses will invoke this method to retrieve a parameter value;
+   method getParameter(&key As string) Returns string;
+   
+private
+   instance string &m_portalName;
+   instance string &m_tabName;
+   instance string &m_sectionName;
+   
+end-class;
+
+method ParameterizedLoader
+   /+ &oTab as PTNUI:Model:LandingPageTab, +/
+   /+ &oSection as PTNUI:Model:LandingPageSection +/
+   REM ** Use the &oTab and &oSection variables to add style classes, style sheets, or read attributes associated with the parent tab and dynamic section;
+   %Super = create PTNUI:Dynamic:DynamicLoader(&oTab, &oSection);
+   
+   &m_portalName = &oTab.PortalName;
+   &m_tabName = &oTab.TabName;
+   &m_sectionName = &oSection.SectionName;
+end-method;
+
+method getParameter
+   /+ &key as String +/
+   /+ Returns String +/
+   Local string &portalName = &m_portalName;
+   Local string &tabName = &m_tabName;
+   Local string &sectionName = &m_sectionName;
+   Local string &value;
+   
+   /* The following SQL statement may be best formatted as an SQL definition.
+    * It is embedded here to simplify deployment and adoption.
+    */
+   SQLExec("SELECT PORTAL_ATTR_VAL FROM PSPTHPAGATTR WHERE PORTAL_NAME = :1 AND PORTAL_OBJNAME = :2 AND PORTAL_OBJNAME_PGT = :3 AND PORTAL_ATTR_NAM = :4", &portalName, &tabName, &sectionName, &key, &value);
+   Return &key;
+end-method;
