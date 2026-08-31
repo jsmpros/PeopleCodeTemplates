@@ -40,5 +40,5 @@ method getParameter
     * It is embedded here to simplify deployment and adoption.
     */
    SQLExec("SELECT PORTAL_ATTR_VAL FROM PSPTHPAGATTR WHERE PORTAL_NAME = :1 AND PORTAL_OBJNAME = :2 AND PORTAL_OBJNAME_PGT = :3 AND PORTAL_ATTR_NAM = :4", &portalName, &tabName, &sectionName, &key, &value);
-   Return &key;
+   Return &value;
 end-method;
